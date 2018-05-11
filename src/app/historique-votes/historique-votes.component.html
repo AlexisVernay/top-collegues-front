@@ -1,0 +1,19 @@
+<h1>Historique</h1>
+<div class="mr-2 mb-3" *ngFor="let vote of votes">
+  <div class="ml-2 mt-3 card" style="width: 35rem">
+    <div class="ml-2 mt-3 row">
+      <img class="img-responsive" src="{{vote.collegue.photo}}" alt="Photo collegue">
+      <div class="col">
+          <p class="card-text mt-3">{{vote.collegue.pseudo}}</p>
+          <div *ngIf="vote.avis == 'Je déteste'; else elseBlock">
+              <p class="card-text mt-3" >{{vote.collegue.pseudo}} est détesté, cette personne a désormais un score de {{vote.collegue.score}}</p>
+          </div>
+          <ng-template #elseBlock>
+              <p class="card-text mt-3" >{{vote.collegue.pseudo}} est aimé, cette personne a désormais un score de {{vote.collegue.score}}</p>
+          </ng-template>
+          <button class="btn btn-primary" (click)="onClick(vote)">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+

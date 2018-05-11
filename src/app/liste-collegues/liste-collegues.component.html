@@ -1,0 +1,10 @@
+
+<button class="btn btn-primary" (click)="ngOnInit()">Rafraîchir</button>
+  <div class="row">
+      <div *ngFor="let collegue of collegues">
+        <app-collegue [collegue]="collegue"></app-collegue>
+      </div>
+  </div>
+
+
+

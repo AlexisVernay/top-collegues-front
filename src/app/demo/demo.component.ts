@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Avis } from '../models';
+import { Collegue } from '../models';
 
 @Component({
   selector: 'app-demo',
@@ -12,4 +14,9 @@ export class DemoComponent implements OnInit {
   ngOnInit() {
   }
 
+  avisMessage = ""
+
+  traiterAvis(unAvis:Avis) {
+    this.avisMessage = 'Vous avez cliquez sur ' + unAvis
+  }
 }
