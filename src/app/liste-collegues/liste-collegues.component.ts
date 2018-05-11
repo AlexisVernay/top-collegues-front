@@ -12,7 +12,7 @@ export class ListeColleguesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.collegues = [new Collegue("Maxime"), new Collegue("Alexis"), new Collegue("Cyril"), new Collegue("Mehdi")];
+    this.collegues = [new Collegue("Maxime"), new Collegue("Alexis"), new Collegue("Cyril"), new Collegue("Mehdi"), new Collegue("Clément"), new Collegue("Julien"), new Collegue("Fabien")];
   }
 
   traiterScore(score:number) {

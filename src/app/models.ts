@@ -11,7 +11,7 @@ export class Collegue {
   constructor(pseudo){
     this.pseudo = pseudo;
     this.score = 0;
-    this.photo = "assets/img/super-collegue.png";
+    this.photo = "http://www.chat-de-race-siberien.fr/img/chats/quenna/elevage-siberien-de-race-9-a-12-mois-14.jpg";
   }
 }
 
