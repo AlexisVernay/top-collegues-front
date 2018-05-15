@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from "@angular/router";
 import { Collegue } from '../models';
 import { Avis } from '../models';
 import { CollegueService } from "../services/collegue.service";
@@ -14,11 +15,15 @@ export class CollegueComponent implements OnInit {
   enable: boolean;
   disable: boolean;
 
-  constructor(private CService: CollegueService) { }
+  constructor(private CService: CollegueService, private router: Router) { }
 
   ngOnInit() {
     this.enable = this.collegue.score >= 1000;
     this.disable = this.collegue.score <= 1000;
+  }
+
+  trouverCollegue() {
+    this.router.navigate(["/collegue", this.collegue.pseudo])
   }
 
   traiterAvis(unAvis:Avis) {

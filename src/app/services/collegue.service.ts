@@ -15,6 +15,13 @@ export class CollegueService {
     return this._http.get<Collegue[]>(`${URL_BACKEND}/Collegues`).toPromise();
     // récupérer la liste des collègues côté serveur
   }
+
+  trouverCollegue(pseudo: string): Promise<Collegue> {
+    return this._http
+    .get<Collegue>(`${URL_BACKEND}/Collegues/${pseudo}`)
+    .toPromise();
+  }
+
   donnerUnAvis(unCollegue: Collegue, avis: Avis): Promise<Collegue> {
     return this._http
       .patch<Collegue>(`${URL_BACKEND}/Collegues/${unCollegue.pseudo}`, {

@@ -12,15 +12,9 @@ export class ListeColleguesComponent implements OnInit {
 
   constructor(private CService: CollegueService) { }
 
-  onClick() {}
-
   ngOnInit() {
     this.CService.listerCollegues()
     .then(cols => (this.collegues = cols))
     .catch(console.log);
-  }
-
-  traiterScore(score:number) {
-
   }
 }
