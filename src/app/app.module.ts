@@ -15,6 +15,8 @@ import { MenuComponent } from "./menu/menu.component";
 import { RouterModule, Routes } from "@angular/router";
 import { CollegueService } from "./services/collegue.service";
 import { CollegueDetailComponent } from './collegue-detail/collegue-detail.component';
+import { ScorePipe } from './pipes/score.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 const appRoutes: Routes = [
   { path: "accueil", component: AccueilComponent },
@@ -39,7 +41,9 @@ const appRoutes: Routes = [
     HistoriqueVotesComponent,
     AccueilComponent,
     MenuComponent,
-    CollegueDetailComponent
+    CollegueDetailComponent,
+    ScorePipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
