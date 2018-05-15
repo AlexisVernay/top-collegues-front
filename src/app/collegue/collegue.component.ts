@@ -11,13 +11,13 @@ export class CollegueComponent implements OnInit {
   @Input() collegue: Collegue;
   avisMessage = ""
   enable: boolean;
-  desable: boolean;
+  disable: boolean;
 
   constructor() { }
 
   ngOnInit() {
     this.enable = this.collegue.score >= 1000;
-    this.desable = this.collegue.score <= 1000;
+    this.disable = this.collegue.score <= 1000;
   }
 
   traiterAvis(unAvis:Avis) {
@@ -29,6 +29,6 @@ export class CollegueComponent implements OnInit {
     }
     this.avisMessage = "Vous avez cliquez sur " + unAvis;
     this.enable = this.collegue.score >= 1000;
-    this.desable = this.collegue.score <= 1000;
+    this.disable = this.collegue.score <= 1000;
   }
 }
