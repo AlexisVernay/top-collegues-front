@@ -13,6 +13,7 @@ import { HistoriqueVotesComponent } from './historique-votes/historique-votes.co
 import { AccueilComponent } from './accueil/accueil.component';
 import { MenuComponent } from "./menu/menu.component";
 import { RouterModule, Routes } from "@angular/router";
+import { CollegueService } from "./services/collegue.service";
 
 const appRoutes: Routes = [
   { path: "accueil", component: AccueilComponent },
@@ -44,7 +45,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { onSameUrlNavigation: `reload` }),
     HttpClientModule
   ],
-  providers: [],
+  providers: [CollegueService],
   bootstrap: [AppComponent]
 })
 

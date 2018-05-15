@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Collegue } from '../models';
+import { Collegue, Avis } from '../models';
+import { CollegueService } from "../services/collegue.service";
 
 @Component({
   selector: 'app-liste-collegues',
@@ -9,10 +10,14 @@ import { Collegue } from '../models';
 export class ListeColleguesComponent implements OnInit {
   collegues: Collegue[];
 
-  constructor() { }
+  constructor(private CService: CollegueService) { }
+
+  onClick() {}
 
   ngOnInit() {
-    this.collegues = [new Collegue("Maxime"), new Collegue("Alexis"), new Collegue("Cyril"), new Collegue("Mehdi"), new Collegue("Clément"), new Collegue("Julien"), new Collegue("Fabien")];
+    this.CService.listerCollegues()
+    .then(cols => (this.collegues = cols))
+    .catch(console.log);
   }
 
   traiterScore(score:number) {

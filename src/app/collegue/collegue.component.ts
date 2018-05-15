@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Collegue } from '../models';
 import { Avis } from '../models';
+import { CollegueService } from "../services/collegue.service";
 
 @Component({
   selector: 'app-collegue',
@@ -13,7 +14,7 @@ export class CollegueComponent implements OnInit {
   enable: boolean;
   disable: boolean;
 
-  constructor() { }
+  constructor(private CService: CollegueService) { }
 
   ngOnInit() {
     this.enable = this.collegue.score >= 1000;
@@ -21,14 +22,13 @@ export class CollegueComponent implements OnInit {
   }
 
   traiterAvis(unAvis:Avis) {
-    if(unAvis == Avis.AIMER) {
-      this.collegue.score = this.collegue.score + 50;
-    }
-    if(unAvis == Avis.DETESTER) {
-      this.collegue.score = this.collegue.score - 50;
-    }
-    this.avisMessage = "Vous avez cliquez sur " + unAvis;
-    this.enable = this.collegue.score >= 1000;
-    this.disable = this.collegue.score <= 1000;
+    this.CService.donnerUnAvis(this.collegue, unAvis)
+      .then(cols => {
+        this.collegue = cols;
+        this.avisMessage = "Vous avez voté " + unAvis;
+        this.enable = this.collegue.score >= 1000;
+        this.disable = this.collegue.score <= -1000;
+      })
+      .catch(err => console.log(err));
   }
 }
