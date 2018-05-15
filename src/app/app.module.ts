@@ -7,9 +7,24 @@ import { DemoComponent } from './demo/demo.component';
 import { BandeauComponent } from './bandeau/bandeau.component';
 import { AvisComponent } from './avis/avis.component';
 import { CollegueComponent } from './collegue/collegue.component';
+import { HttpClientModule } from "@angular/common/http";
 import { ListeColleguesComponent } from './liste-collegues/liste-collegues.component';
 import { HistoriqueVotesComponent } from './historique-votes/historique-votes.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { MenuComponent } from "./menu/menu.component";
+import { RouterModule, Routes } from "@angular/router";
+
+const appRoutes: Routes = [
+  { path: "accueil", component: AccueilComponent },
+
+  { path: "demo", component: DemoComponent },
+
+  { path: "collegue/", component: CollegueComponent },
+
+  { path: "", redirectTo: "/accueil", pathMatch: "full" },
+
+  { path: "**", redirectTo: "/accueil", pathMatch: "full" } // page non trouvée
+  ];
 
 @NgModule({
   declarations: [
@@ -20,11 +35,14 @@ import { AccueilComponent } from './accueil/accueil.component';
     CollegueComponent,
     ListeColleguesComponent,
     HistoriqueVotesComponent,
-    AccueilComponent
+    AccueilComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    RouterModule.forRoot(appRoutes, { onSameUrlNavigation: `reload` }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
