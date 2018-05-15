@@ -7,11 +7,19 @@ export class Collegue {
   pseudo: String;
   score: number;
   photo: String;
+  nom: String;
+  prenom: String;
+  email: String;
+  adresse: String;
 
-  constructor(pseudo){
+  constructor(pseudo, prenom, nom){
     this.pseudo = pseudo;
     this.score = 0;
-    this.photo = "http://www.chat-de-race-siberien.fr/img/chats/quenna/elevage-siberien-de-race-9-a-12-mois-14.jpg";
+    this.photo = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Patrice_de_MacMahon_crop.jpg/220px-Patrice_de_MacMahon_crop.jpg";
+    this.nom = "De Mac Mahon";
+    this.prenom = "Patrice";
+    this.email = "patrice.de-mac-mahon@republique.fr";
+    this.adresse = "Paris, Place de la République"
   }
 }
 

@@ -9,7 +9,7 @@ import { CollegueService } from "../services/collegue.service";
   styleUrls: ['./collegue-detail.component.scss']
 })
 export class CollegueDetailComponent implements OnInit {
-  collegue: Collegue = new Collegue("Président");
+  collegue: Collegue = new Collegue("Président", "Patrice", "DE MAC MAHON");
   avisMessage = ""
   enable: boolean;
   disable: boolean;
