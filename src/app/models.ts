@@ -4,6 +4,7 @@ export enum Avis {
 }
 
 export class Collegue {
+  matricule: String;
   pseudo: String;
   score: number;
   photo: String;
@@ -13,14 +14,21 @@ export class Collegue {
   adresse: String;
 
   constructor(pseudo, prenom, nom){
+    this.matricule = "FR1873";
     this.pseudo = pseudo;
     this.score = 0;
     this.photo = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Patrice_de_MacMahon_crop.jpg/220px-Patrice_de_MacMahon_crop.jpg";
     this.nom = "De Mac Mahon";
     this.prenom = "Patrice";
     this.email = "patrice.de-mac-mahon@republique.fr";
-    this.adresse = "Paris, Place de la République"
+    this.adresse = "Paris, Place de la République";
   }
+}
+
+export class newCollegue {
+  matricule:string;
+  pseudo:string;
+  urlImage:string;
 }
 
 export class Vote {

@@ -1,0 +1,41 @@
+<app-menu></app-menu>
+<div class="ml-4 mt-5 form">
+  <h1>Ajouter un collegue</h1>
+  <form (ngSubmit)="submit()" class="mt-4">
+      <div class="form-group">
+        <label for="matricule">Matricule</label>
+        <input id="matricule" class="form-control" name="matricule" required
+        [(ngModel)]="newCollegue.matricule" #matricule="ngModel">
+        <div *ngIf="matricule.invalid && (matricule.dirty || matricule.touched)"
+             class="alert alert-danger">
+          <div *ngIf="matricule.errors.required">
+            Matricule requis
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="pseudo">Pseudo</label>
+        <input id="pseudo" class="form-control" name="pseudo" required minlength="2"
+        [(ngModel)]="newCollegue.pseudo" #pseudo="ngModel">
+        <div *ngIf="pseudo.invalid && (pseudo.dirty || pseudo.touched)"
+             class="alert alert-danger">
+          <div *ngIf="pseudo.errors.required">
+            Pseudo requis
+          </div>
+          <div *ngIf="pseudo.errors.minlength">
+            Le pseudo doit avoir au moins 2 caractères
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="photo">URL photo</label>
+        <input name="photo" [(ngModel)]="newCollegue.urlImage" type="text" class="form-control" id="photo">
+      </div>
+
+      <div *ngIf="newCollegue.matricule != '' && newCollegue.pseudo !=''; else elseBlock">
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+      </div>
+  </form>
+</div>

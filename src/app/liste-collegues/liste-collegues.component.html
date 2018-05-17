@@ -1,14 +1,11 @@
-
 <button class="btn btn-primary" (click)="ngOnInit()">Rafraîchir</button>
+<button class="btn btn-primary" routerLink="/nouveau" routerLinkActive="active-link">Ajouter un collegue</button>
 <div class="form-inline">
-        <span class="text-warning">Filtrer par pseudo :</span>
-         <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search" id="pseudo" #saisieInput (keyup)="saisiePseudo = saisieInput.value">
+  <span class="ml-2 mr-2">Filtrer par pseudo :</span>
+  <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search" id="pseudo" #saisieInput (keyup)="saisiePseudo = saisieInput.value">
 </div>
 <div class="row">
-      <div *ngFor="let collegue of collegues | filtrerCollegues: saisiePseudo">
-        <app-collegue [collegue]="collegue"></app-collegue>
-      </div>
+  <div *ngFor="let collegue of collegues | filtrerCollegues: saisiePseudo">
+    <app-collegue [collegue]="collegue"></app-collegue>
   </div>
-
-
-
+</div>
