@@ -25,14 +25,14 @@ export class CollegueService {
       this._http
         .get<Collegue[]>(`${URL_BACKEND}/collegues`)
         // accorder un bonus dans mon application
-        .pipe(
+        /*.pipe(
           map(cols =>
             cols.filter(c => c.score > 0).map(c => {
               c.score += 1000;
               return c;
             })
           )
-        )
+        )*/
     );
   }
 
