@@ -16,8 +16,9 @@ export class ListeColleguesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.CService.listerCollegues()
-    .then(cols => (this.collegues = cols))
-    .catch(console.log);
+    this.CService.listerCollegues().subscribe(
+      cols => (this.collegues = cols),
+      console.log
+    );
   }
 }

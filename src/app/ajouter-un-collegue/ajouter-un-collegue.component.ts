@@ -11,13 +11,14 @@ import { Router } from '@angular/router';
 
 export class AjouterUnCollegueComponent implements OnInit {
   newCollegue: newCollegue = new newCollegue();
+  error: string = " ";
 
   constructor(private CService: CollegueService, private router: Router) { }
 
   submit() {
-    this.CService.ajouterCollegue(this.newCollegue).then((col: Collegue) => {
+    this.CService.ajouterCollegue(this.newCollegue).subscribe((col: Collegue) => {
       this.router.navigate(["/accueil"]);
-   });
+   }, err => (this.error = err.error));
   }
 
   ngOnInit() {

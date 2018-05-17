@@ -21,20 +21,20 @@ export class CollegueDetailComponent implements OnInit {
 
   ngOnInit() {
     this.CService.trouverCollegue(this._route.snapshot.paramMap.get("pseudo"))
-      .then(cols => {
+      .subscribe(cols => {
         this.collegue = cols;
-      })
-      .catch(err => console.log(err));
+      }
+      , err => console.log(err));
   }
 
   traiterAvis(unAvis:Avis) {
     this.CService.donnerUnAvis(this.collegue, unAvis)
-      .then(cols => {
+      .subscribe(cols => {
         this.collegue = cols;
         this.avisMessage = "Vous avez voté " + unAvis;
         this.enable = this.collegue.score >= 1000;
         this.disable = this.collegue.score <= -1000;
-      })
-      .catch(err => console.log(err));
+      }
+      , err => console.log(err))
   }
 }
