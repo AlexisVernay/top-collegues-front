@@ -37,5 +37,8 @@
       <div *ngIf="newCollegue.matricule != '' && newCollegue.pseudo !=''; else elseBlock">
         <button type="submit" class="btn btn-primary">Ajouter</button>
       </div>
+      <ng-template #elseBlock>
+        <button type="submit" class="btn btn-primary" disabled="disabled">Ajouter</button>
+      </ng-template>
   </form>
 </div>
